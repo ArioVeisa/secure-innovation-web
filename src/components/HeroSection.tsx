@@ -1,9 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Set isLoaded to true after initial render
@@ -11,11 +13,47 @@ const HeroSection = () => {
       setIsLoaded(true);
     }, 100);
 
-    return () => clearTimeout(timer);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!heroRef.current) return;
+      
+      const rect = heroRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
+  // Create interactive particle effect
+  const particles = [];
+  for (let i = 0; i < 30; i++) {
+    const size = Math.random() * 3 + 1;
+    particles.push(
+      <div 
+        key={i}
+        className="absolute w-1 h-1 rounded-full bg-minetech-cyan/30"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          opacity: Math.random() * 0.5 + 0.3,
+          animation: `float ${Math.random() * 10 + 15}s linear infinite`,
+          animationDelay: `${Math.random() * 10}s`
+        }}
+      ></div>
+    );
+  }
+
   return (
-    <section id="home" className="relative pt-20 lg:pt-0 min-h-screen flex items-center">
+    <section ref={heroRef} id="home" className="relative pt-20 lg:pt-0 min-h-screen flex items-center overflow-hidden">
       {/* Background Elements - More advanced with animation */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-[20%] left-[10%] w-60 h-60 bg-minetech-cyan/5 rounded-full blur-[80px] animate-float-slow"></div>
@@ -24,20 +62,18 @@ const HeroSection = () => {
         
         {/* Animated particles */}
         <div className="absolute inset-0 z-0">
-          {[...Array(20)].map((_, i) => (
-            <div 
-              key={i}
-              className="absolute w-1 h-1 rounded-full bg-minetech-cyan/30"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.5 + 0.3,
-                animation: `float ${Math.random() * 10 + 15}s linear infinite`,
-                animationDelay: `${Math.random() * 10}s`
-              }}
-            ></div>
-          ))}
+          {particles}
         </div>
+
+        {/* Mouse-following glow effect */}
+        <div 
+          className="absolute w-96 h-96 rounded-full blur-[150px] bg-minetech-cyan/5 pointer-events-none transition-all duration-1000 ease-out"
+          style={{ 
+            left: `${mousePosition.x - 200}px`, 
+            top: `${mousePosition.y - 200}px`,
+            opacity: isLoaded ? 0.6 : 0 
+          }}
+        ></div>
       </div>
 
       {/* Grid Lines - Enhanced subtle grid */}
@@ -97,6 +133,8 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Floating decorative elements */}
               <div className="absolute -bottom-2 -right-2 sm:bottom-0 sm:-right-8 w-20 h-20 border border-minetech-cyan/30 rounded-lg animate-float" style={{ animationDelay: '1s' }}></div>
               <div className="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 w-16 h-16 border border-minetech-cyan/20 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
               
@@ -104,11 +142,35 @@ const HeroSection = () => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
                 <div className="absolute top-0 left-1/2 h-full w-[1px] bg-gradient-to-b from-transparent via-minetech-cyan/20 to-transparent"></div>
                 <div className="absolute top-1/2 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-minetech-cyan/20 to-transparent"></div>
+                
+                {/* Added circular light trail */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-minetech-cyan/10 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] border border-minetech-cyan/5 rounded-full"></div>
+              </div>
+
+              {/* Moving light dot */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="relative w-[300px] h-[300px]">
+                  <div 
+                    className="absolute w-2 h-2 bg-minetech-cyan rounded-full"
+                    style={{
+                      animation: "orbit 10s linear infinite"
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Custom cursor trail for this section only */}
+      <style jsx>{`
+        @keyframes orbit {
+          from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+          to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+      `}</style>
     </section>
   );
 };

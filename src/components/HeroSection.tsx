@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -81,10 +82,16 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-7/12 lg:pr-12 space-y-8 reveal-stagger">
+            {/* Added header/subtitle tag above the main title */}
             <div className="space-y-5">
               <p className={`text-minetech-cyan font-medium transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.2s"}}>
                 Welcome to Minetech.io
               </p>
+              {/* Added new animated subtitle tag for emphasis */}
+              <div className={`inline-flex items-center mb-4 transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.3s"}}>
+                <span className="px-4 py-1 bg-minetech-cyan/10 text-minetech-cyan rounded-full text-sm font-semibold border border-minetech-cyan/30 animate-pulse-glow">NEXT GENERATION TECH SOLUTIONS</span>
+              </div>
+              
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.4s"}}>
                 Empowering Digital Future with <span className="text-gradient">Security</span> & <span className="text-gradient">Innovation</span>
               </h1>

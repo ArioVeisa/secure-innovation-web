@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -165,12 +164,14 @@ const HeroSection = () => {
       </div>
 
       {/* Custom cursor trail for this section only */}
-      <style jsx>{`
+      <style>
+        {`
         @keyframes orbit {
           from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
           to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };

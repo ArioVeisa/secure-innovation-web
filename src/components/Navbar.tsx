@@ -2,10 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+interface NavbarProps {
+  activeSection?: string;
+}
+
+const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(propActiveSection || 'home');
+
+  useEffect(() => {
+    if (propActiveSection) {
+      setActiveSection(propActiveSection);
+    }
+  }, [propActiveSection]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,16 +25,19 @@ const Navbar = () => {
         setIsScrolled(false);
       }
       
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'services', 'portfolio', 'testimonials', 'contact'];
-      
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(section);
-            break;
+      // Only update active section based on scroll if propActiveSection isn't provided
+      if (!propActiveSection) {
+        // Update active section based on scroll position
+        const sections = ['home', 'about', 'services', 'portfolio', 'testimonials', 'contact'];
+        
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
@@ -32,7 +45,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [propActiveSection]);
 
   const navLinks = [
     { name: 'Home', href: '#home' },

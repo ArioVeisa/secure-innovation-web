@@ -60,11 +60,11 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Add background particles
+  // Add background particles - but fewer for a cleaner look
   const particles = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 40; i++) {
     const size = Math.random() * 2 + 1;
-    const opacity = Math.random() * 0.5 + 0.1;
+    const opacity = Math.random() * 0.4 + 0.1;
     particles.push(
       <div 
         key={i}
@@ -88,7 +88,7 @@ const Index = () => {
       <div className="fixed top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(10,25,47,0.2),transparent_70%)] pointer-events-none"></div>
       
       {/* Advanced Grid Lines */}
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,rgba(100,255,218,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,255,218,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,rgba(100,255,218,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,255,218,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
       
       {/* Animated particles */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">

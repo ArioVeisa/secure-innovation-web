@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { ArrowRight, Shield, Code, Cpu } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -87,10 +87,6 @@ const HeroSection = () => {
               <p className={`text-minetech-cyan font-medium transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.2s"}}>
                 Welcome to Minetech.io
               </p>
-              {/* Added new animated subtitle tag for emphasis */}
-              <div className={`inline-flex items-center mb-4 transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.3s"}}>
-                <span className="px-4 py-1 bg-minetech-cyan/10 text-minetech-cyan rounded-full text-sm font-semibold border border-minetech-cyan/30 animate-pulse-glow">NEXT GENERATION TECH SOLUTIONS</span>
-              </div>
               
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.4s"}}>
                 Empowering Digital Future with <span className="text-gradient">Security</span> & <span className="text-gradient">Innovation</span>
@@ -98,33 +94,6 @@ const HeroSection = () => {
               <p className={`text-minetech-gray text-lg max-w-2xl transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.6s"}}>
                 We deliver cutting-edge web development, robust cybersecurity, and strategic digital marketing solutions to transform your business in the digital landscape.
               </p>
-            </div>
-            
-            {/* Added feature highlights section */}
-            <div className={`grid grid-cols-1 sm:grid-cols-3 gap-6 transition-all duration-700 mt-8 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.7s"}}>
-              <div className="glass-card p-4 rounded-lg border border-minetech-cyan/20 hover:border-minetech-cyan/40 transition-all duration-300">
-                <div className="flex items-center mb-3">
-                  <Shield className="text-minetech-cyan mr-3" size={20} />
-                  <h3 className="font-semibold text-white">Advanced Security</h3>
-                </div>
-                <p className="text-minetech-gray text-sm">Enterprise-grade protection for your digital assets and sensitive data.</p>
-              </div>
-              
-              <div className="glass-card p-4 rounded-lg border border-minetech-cyan/20 hover:border-minetech-cyan/40 transition-all duration-300">
-                <div className="flex items-center mb-3">
-                  <Code className="text-minetech-cyan mr-3" size={20} />
-                  <h3 className="font-semibold text-white">Modern Development</h3>
-                </div>
-                <p className="text-minetech-gray text-sm">Cutting-edge tech stack and best practices for scalable solutions.</p>
-              </div>
-              
-              <div className="glass-card p-4 rounded-lg border border-minetech-cyan/20 hover:border-minetech-cyan/40 transition-all duration-300">
-                <div className="flex items-center mb-3">
-                  <Cpu className="text-minetech-cyan mr-3" size={20} />
-                  <h3 className="font-semibold text-white">AI Integration</h3>
-                </div>
-                <p className="text-minetech-gray text-sm">Leverage the power of artificial intelligence for smarter business processes.</p>
-              </div>
             </div>
             
             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.8s"}}>
@@ -197,7 +166,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Custom cursor trail for this section only */}
       <style>
         {`
         @keyframes orbit {

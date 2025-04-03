@@ -67,12 +67,12 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#home" className="flex items-center group">
           <span className="text-2xl font-bold text-white tracking-tight relative">
-            Mine<span className="text-minetech-cyan">tech</span>
+            Vint<span className="text-minetech-cyan">.</span>
             <span className="text-minetech-cyan relative overflow-hidden inline-block">
-              .
+              i
               <span className="absolute inset-0 w-full h-full bg-minetech-cyan animate-pulse-glow opacity-50 blur-sm -z-10 group-hover:opacity-100 transition-opacity duration-300"></span>
             </span>
-            io
+            o
           </span>
         </a>
 

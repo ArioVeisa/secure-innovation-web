@@ -27,7 +27,7 @@ const Footer = () => {
             <div>
               <a href="#home" className="flex items-center mb-6">
                 <span className="text-2xl font-bold text-white tracking-tight">
-                  Mine<span className="text-minetech-cyan">tech</span><span className="text-minetech-cyan">.</span>io
+                  Vint<span className="text-minetech-cyan">.</span>io
                 </span>
               </a>
               <p className="text-minetech-gray mb-6">
@@ -111,7 +111,7 @@ const Footer = () => {
                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                   </svg>
-                  <a href="mailto:info@minetech.io" className="text-minetech-gray hover:text-minetech-cyan transition-colors">info@minetech.io</a>
+                  <a href="mailto:info@vint.io" className="text-minetech-gray hover:text-minetech-cyan transition-colors">info@vint.io</a>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-minetech-cyan mt-1">
@@ -132,7 +132,7 @@ const Footer = () => {
           
           <div className="border-t border-minetech-cyan/10 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-minetech-gray text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Minetech.io. All rights reserved.
+              © {new Date().getFullYear()} PT. Veisa Digital Nusantara. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-minetech-gray text-sm hover:text-minetech-cyan transition-colors">Privacy Policy</a>

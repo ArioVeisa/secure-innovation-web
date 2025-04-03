@@ -121,17 +121,23 @@ const HeroSection = () => {
                 <div className="w-60 h-60 md:w-80 md:h-80 bg-gradient-to-br from-minetech-navy to-minetech-dark border border-minetech-cyan/30 rounded-full flex items-center justify-center">
                   <div className="w-48 h-48 md:w-64 md:h-64 bg-minetech-dark/80 border border-minetech-cyan/40 rounded-full flex items-center justify-center animate-glow relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(100,255,218,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-minetech-cyan relative z-10">
-                      <path d="M40 10L15 25V55L40 70L65 55V25L40 10Z" stroke="currentColor" strokeWidth="2" />
-                      <path d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25" stroke="currentColor" strokeWidth="2" />
-                      <circle cx="40" cy="40" r="5" fill="currentColor" />
-                      <circle cx="15" cy="25" r="3" fill="currentColor" />
-                      <circle cx="65" cy="25" r="3" fill="currentColor" />
-                      <circle cx="65" cy="55" r="3" fill="currentColor" />
-                      <circle cx="15" cy="55" r="3" fill="currentColor" />
-                      <circle cx="40" cy="10" r="3" fill="currentColor" />
-                      <circle cx="40" cy="70" r="3" fill="currentColor" />
-                    </svg>
+                    <div className="flex flex-col items-center">
+                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-minetech-cyan relative z-10">
+                        <path d="M40 10L15 25V55L40 70L65 55V25L40 10Z" stroke="currentColor" strokeWidth="2" />
+                        <path d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25" stroke="currentColor" strokeWidth="2" />
+                        <circle cx="40" cy="40" r="5" fill="currentColor" />
+                        <circle cx="15" cy="25" r="3" fill="currentColor" />
+                        <circle cx="65" cy="25" r="3" fill="currentColor" />
+                        <circle cx="65" cy="55" r="3" fill="currentColor" />
+                        <circle cx="15" cy="55" r="3" fill="currentColor" />
+                        <circle cx="40" cy="10" r="3" fill="currentColor" />
+                        <circle cx="40" cy="70" r="3" fill="currentColor" />
+                      </svg>
+                      <div className="text-center mt-4 space-y-1">
+                        <h3 className="text-minetech-cyan font-medium text-lg">Future of Tech</h3>
+                        <p className="text-minetech-light text-sm">Innovative Solutions</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

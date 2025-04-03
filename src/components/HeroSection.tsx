@@ -82,6 +82,15 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-7/12 lg:pr-12 space-y-8 reveal-stagger">
+            {/* Added main headline above the existing content */}
+            <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.1s"}}>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
+                <span className="text-gradient">Transforming</span> 
+                <br />Ideas Into 
+                <br /><span className="text-minetech-cyan">Reality</span>
+              </h1>
+            </div>
+            
             {/* Added header/subtitle tag above the main title */}
             <div className="space-y-5">
               <p className={`text-minetech-cyan font-medium transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.2s"}}>

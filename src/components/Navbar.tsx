@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -25,9 +24,7 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
         setIsScrolled(false);
       }
       
-      // Only update active section based on scroll if propActiveSection isn't provided
       if (!propActiveSection) {
-        // Update active section based on scroll position
         const sections = ['home', 'about', 'services', 'portfolio', 'testimonials', 'contact'];
         
         for (const section of sections.reverse()) {
@@ -66,17 +63,13 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#home" className="flex items-center group">
-          <span className="text-2xl font-bold text-white tracking-tight relative">
+          <span className="text-2xl font-bold text-white tracking-tight">
             Vint<span className="text-minetech-cyan">.</span>
-            <span className="text-minetech-cyan relative overflow-hidden inline-block">
-              i
-              <span className="absolute inset-0 w-full h-full bg-minetech-cyan animate-pulse-glow opacity-50 blur-sm -z-10 group-hover:opacity-100 transition-opacity duration-300"></span>
-            </span>
+            <span className="text-minetech-cyan inline-block">i</span>
             o
           </span>
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((link, index) => (
             <a
@@ -99,7 +92,6 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
           <span className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(100,255,218,0.2),transparent)] -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
         </button>
 
-        {/* Mobile Navigation Button */}
         <button 
           className="md:hidden text-minetech-light hover:text-minetech-cyan relative z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -108,7 +100,6 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       <div 
         className={`md:hidden glass fixed inset-0 z-40 flex items-center justify-center transition-all duration-500 ease-in-out ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'

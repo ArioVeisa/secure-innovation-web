@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
@@ -27,7 +26,9 @@ const Footer = () => {
             <div>
               <a href="#home" className="flex items-center mb-6">
                 <span className="text-2xl font-bold text-white tracking-tight">
-                  Vint<span className="text-minetech-cyan">.</span>io
+                  Vint<span className="text-minetech-cyan">.</span>
+                  <span className="text-minetech-cyan inline-block">i</span>
+                  o
                 </span>
               </a>
               <p className="text-minetech-gray mb-6">

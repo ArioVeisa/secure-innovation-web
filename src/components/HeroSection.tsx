@@ -53,7 +53,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section ref={heroRef} id="home" className="relative pt-20 lg:pt-0 min-h-screen flex items-center overflow-hidden">
+    <section ref={heroRef} id="home" className="relative pt-28 lg:pt-32 min-h-screen flex items-center overflow-hidden">
       {/* Background Elements - More advanced with animation */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-[20%] left-[10%] w-60 h-60 bg-minetech-cyan/5 rounded-full blur-[80px] animate-float-slow"></div>
@@ -85,7 +85,7 @@ const HeroSection = () => {
             {/* Added header/subtitle tag above the main title */}
             <div className="space-y-5">
               <p className={`text-minetech-cyan font-medium transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.2s"}}>
-                Welcome to Minetech.io
+                Welcome to Vint.io
               </p>
               
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: "0.4s"}}>

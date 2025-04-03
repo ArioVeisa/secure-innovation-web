@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -62,13 +63,24 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#home" className="flex items-center group">
-          <span className="text-2xl font-bold text-white tracking-tight">
-            Vint<span className="text-minetech-cyan">.</span>
-            <span className="text-minetech-cyan inline-block">i</span>
-            o
-          </span>
-        </a>
+        <div className="flex items-center">
+          <a href="#home" className="flex items-center group">
+            <span className="text-2xl font-bold text-white tracking-tight">
+              Vint<span className="text-minetech-cyan">.</span>
+              <span className="text-minetech-cyan inline-block">i</span>
+              o
+            </span>
+          </a>
+          
+          <div className="hidden md:block ml-8">
+            <h1 className="text-minetech-light text-sm font-medium">
+              <span className="text-minetech-cyan">Secure</span> • Innovative • Reliable
+            </h1>
+            <p className="text-minetech-gray text-xs">
+              Digital Solutions for Your Business
+            </p>
+          </div>
+        </div>
 
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((link, index) => (
@@ -106,6 +118,15 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
         }`}
       >
         <div className="container px-6 py-8 flex flex-col space-y-8 items-center">
+          <div className="text-center mb-4">
+            <h1 className="text-minetech-cyan font-medium text-lg">
+              Secure • Innovative • Reliable
+            </h1>
+            <p className="text-minetech-gray">
+              Digital Solutions for Your Business
+            </p>
+          </div>
+
           {navLinks.map((link, index) => (
             <a
               key={index}

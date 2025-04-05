@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -88,7 +89,7 @@ const HeroSection = () => {
             <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
               transitionDelay: "0.1s"
             }}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 text-white leading-[1.1]">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 text-white leading-[1.1]">
                 <span className="text-gradient">Transforming</span> 
                 <br />Ideas Into 
                 <br /><span className="text-minetech-cyan">Reality</span>
@@ -114,12 +115,13 @@ const HeroSection = () => {
             transitionDelay: "1s"
           }}>
             <div className="relative flex justify-center lg:justify-start">
-              <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-minetech-navy border border-minetech-cyan/20 rounded-full flex items-center justify-center animate-float">
-                <div className="w-48 h-48 sm:w-60 sm:h-60 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-minetech-navy to-minetech-dark border border-minetech-cyan/30 rounded-full flex items-center justify-center">
-                  <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-64 lg:h-64 bg-minetech-dark/80 border border-minetech-cyan/40 rounded-full flex items-center justify-center animate-glow relative overflow-hidden group">
+              {/* Reducing sizes for better proportion on desktop */}
+              <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-minetech-navy border border-minetech-cyan/20 rounded-full flex items-center justify-center animate-float">
+                <div className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 lg:w-64 lg:h-64 bg-gradient-to-br from-minetech-navy to-minetech-dark border border-minetech-cyan/30 rounded-full flex items-center justify-center">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-minetech-dark/80 border border-minetech-cyan/40 rounded-full flex items-center justify-center animate-glow relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(100,255,218,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="flex flex-col items-center">
-                      <svg width="60" height="60" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-minetech-cyan relative z-10 sm:w-80 sm:h-80">
+                      <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-minetech-cyan relative z-10 sm:w-60 sm:h-60 md:w-70 md:h-70">
                         <path d="M40 10L15 25V55L40 70L65 55V25L40 10Z" stroke="currentColor" strokeWidth="2" />
                         <path d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25" stroke="currentColor" strokeWidth="2" />
                         <circle cx="40" cy="40" r="5" fill="currentColor" />
@@ -136,10 +138,10 @@ const HeroSection = () => {
               </div>
               
               {/* Floating decorative elements - scaled for mobile */}
-              <div className="absolute -bottom-2 -right-2 sm:bottom-0 sm:-right-8 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border border-minetech-cyan/30 rounded-lg animate-float" style={{
+              <div className="absolute -bottom-2 -right-2 sm:bottom-0 sm:-right-8 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border border-minetech-cyan/30 rounded-lg animate-float" style={{
                 animationDelay: '1s'
               }}></div>
-              <div className="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 border border-minetech-cyan/20 rounded-full animate-float" style={{
+              <div className="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border border-minetech-cyan/20 rounded-full animate-float" style={{
                 animationDelay: '1.5s'
               }}></div>
               
@@ -149,13 +151,13 @@ const HeroSection = () => {
                 <div className="absolute top-1/2 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-minetech-cyan/20 to-transparent"></div>
                 
                 {/* Circular light trail - scaled for mobile */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] h-[200px] sm:h-[250px] md:h-[300px] border border-minetech-cyan/10 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] sm:w-[200px] md:w-[250px] h-[150px] sm:h-[200px] md:h-[250px] border border-minetech-cyan/5 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] sm:w-[200px] md:w-[220px] h-[180px] sm:h-[200px] md:h-[220px] border border-minetech-cyan/10 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] sm:w-[160px] md:w-[180px] h-[140px] sm:h-[160px] md:h-[180px] border border-minetech-cyan/5 rounded-full"></div>
               </div>
 
               {/* Moving light dot - adapted for mobile */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative w-[200px] sm:w-[250px] md:w-[300px] h-[200px] sm:h-[250px] md:h-[300px]">
+                <div className="relative w-[180px] sm:w-[200px] md:w-[220px] h-[180px] sm:h-[200px] md:h-[220px]">
                   <div className="absolute w-2 h-2 bg-minetech-cyan rounded-full" style={{
                     animation: "orbit 10s linear infinite"
                   }}></div>
@@ -169,19 +171,19 @@ const HeroSection = () => {
       <style>
         {`
         @keyframes orbit {
-          from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-          to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+          from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+          to { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
         }
         @media (min-width: 640px) {
           @keyframes orbit {
-            from { transform: rotate(0deg) translateX(125px) rotate(0deg); }
-            to { transform: rotate(360deg) translateX(125px) rotate(-360deg); }
+            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
           }
         }
         @media (min-width: 768px) {
           @keyframes orbit {
-            from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-            to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+            from { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
           }
         }
         `}

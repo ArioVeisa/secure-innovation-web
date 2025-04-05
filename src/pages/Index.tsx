@@ -53,34 +53,23 @@ const Index = () => {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    // Trigger once to reveal elements that are already in view
-    handleScroll();
+    // Add event listener with try-catch to prevent potential errors
+    try {
+      window.addEventListener("scroll", handleScroll);
+      // Trigger once to reveal elements that are already in view
+      handleScroll();
+    } catch (error) {
+      console.error("Error in scroll handler:", error);
+    }
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      try {
+        window.removeEventListener("scroll", handleScroll);
+      } catch (error) {
+        console.error("Error removing scroll handler:", error);
+      }
+    };
   }, []);
-
-  // Add background particles - but fewer for a cleaner look
-  const particles = [];
-  for (let i = 0; i < 40; i++) {
-    const size = Math.random() * 2 + 1;
-    const opacity = Math.random() * 0.4 + 0.1;
-    particles.push(
-      <div 
-        key={i}
-        className="absolute bg-minetech-cyan rounded-full animate-float-slow"
-        style={{
-          width: `${size}px`,
-          height: `${size}px`,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          opacity: opacity,
-          animationDuration: `${Math.random() * 20 + 10}s`,
-          animationDelay: `${Math.random() * 10}s`
-        }}
-      />
-    );
-  }
 
   return (
     <div className={`min-h-screen w-full overflow-hidden bg-minetech-dark transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -89,11 +78,6 @@ const Index = () => {
       
       {/* Advanced Grid Lines */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,rgba(100,255,218,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,255,218,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
-      
-      {/* Animated particles */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {particles}
-      </div>
       
       {/* Glowing orbs */}
       <div className="fixed top-1/4 right-1/4 w-96 h-96 bg-minetech-navy/30 rounded-full blur-3xl animate-float-slow pointer-events-none"></div>

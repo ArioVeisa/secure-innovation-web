@@ -6,7 +6,7 @@ import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import PortfolioSection from '../components/PortfolioSection';
 import TestimonialSection from '../components/TestimonialSection';
-import ContactSection from '../components/ContactSection';
+import ContactSection from '../components/ContactSection.tsx';
 import Footer from '../components/Footer';
 
 const Index = () => {

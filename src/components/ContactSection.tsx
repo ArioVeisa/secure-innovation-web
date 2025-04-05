@@ -1,76 +1,97 @@
-
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
-const ContactSection = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  // ✅ Fungsi untuk validasi email
   const validateEmail = (email: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+    return /\S+@\S+\.\S+/.test(email);
   };
 
+  // ✅ Fungsi untuk update state saat user ngetik
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user types
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ✅ Fungsi untuk submit form ke Telegram
+  const escapeMarkdownV2 = (text: string) => {
+    return text.replace(/([_*[\]()~`>#+-=|{}.!])/g, "\\$1");
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate form
+  
     const newErrors = {
-      name: formData.name ? '' : 'Name is required',
-      email: !formData.email ? 'Email is required' : !validateEmail(formData.email) ? 'Invalid email format' : '',
-      message: formData.message ? '' : 'Message is required'
+      name: formData.name ? "" : "Name is required",
+      email: !formData.email
+        ? "Email is required"
+        : !validateEmail(formData.email)
+        ? "Invalid email format"
+        : "",
+      message: formData.message ? "" : "Message is required",
     };
-    
+  
     setErrors(newErrors);
-    
-    // If no errors, submit form
-    if (!newErrors.name && !newErrors.email && !newErrors.message) {
-      setIsSubmitting(true);
-      
-      // Simulate API call
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-        
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 5000);
-      }, 1500);
+    if (newErrors.name || newErrors.email || newErrors.message) {
+      return;
+    }
+  
+    setIsSubmitting(true);
+  
+    const token = "7338043983:AAGWMLxympj6tgFH81GTvngYfs9RTC1Lvlg";
+    const chatId = "6568629821";
+    const text = `📝 *New Contact Form Message*\n\n👤 *Name:* ${escapeMarkdownV2(formData.name)}\n📧 *Email:* ${escapeMarkdownV2(formData.email)}\n📌 *Subject:* ${escapeMarkdownV2(formData.subject)}\n💬 *Message:* ${escapeMarkdownV2(formData.message)}`;
+  
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+          parse_mode: "MarkdownV2", // ✅ Gunakan MarkdownV2
+        }),
+      });
+  
+      const data = await res.json();
+  
+      if (!data.ok) {
+        throw new Error(`Telegram API error: ${data.description}`);
+      }
+  
+      setSubmitSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+  
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (err) {
+      console.error("Gagal kirim ke Telegram:", err);
+      alert("Gagal mengirim pesan. Coba lagi nanti.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
+  
   const contactInfo = [
     {
       icon: Mail,
@@ -291,4 +312,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default ContactForm;

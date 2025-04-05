@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 const HeroSection = () => {
@@ -73,35 +74,15 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-7/12 lg:pr-12 space-y-8 reveal-stagger">
-            {/* Added main headline above the existing content */}
+            {/* Main headline with precise styling */}
             <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
             transitionDelay: "0.1s"
           }}>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-white leading-tight">
                 <span className="text-gradient">Transforming</span> 
                 <br />Ideas Into 
                 <br /><span className="text-minetech-cyan">Reality</span>
               </h1>
-            </div>
-            
-            {/* Added header/subtitle tag above the main title */}
-            <div className="space-y-5">
-              <p className={`text-minetech-cyan font-medium transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
-              transitionDelay: "0.2s"
-            }}>
-                Welcome to Vint.io
-              </p>
-              
-              <h1 style={{
-              transitionDelay: "0.4s"
-            }} className="">
-                Empowering Digital Future with <span className="text-gradient">Security</span> & <span className="text-gradient">Innovation</span>
-              </h1>
-              <p className={`text-minetech-gray text-lg max-w-2xl transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
-              transitionDelay: "0.6s"
-            }}>
-                We deliver cutting-edge web development, robust cybersecurity, and strategic digital marketing solutions to transform your business in the digital landscape.
-              </p>
             </div>
             
             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
@@ -139,10 +120,6 @@ const HeroSection = () => {
                         <circle cx="40" cy="10" r="3" fill="currentColor" />
                         <circle cx="40" cy="70" r="3" fill="currentColor" />
                       </svg>
-                      <div className="text-center mt-4 space-y-1">
-                        <h3 className="text-minetech-cyan font-medium text-lg">Future of Tech</h3>
-                        <p className="text-minetech-light text-sm">Innovative Solutions</p>
-                      </div>
                     </div>
                   </div>
                 </div>

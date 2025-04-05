@@ -72,7 +72,7 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
             </span>
           </a>
           
-          <div className="hidden md:block ml-8">
+          <div className="hidden lg:block ml-8">
             <h1 className="text-minetech-light text-sm font-medium">
               <span className="text-minetech-cyan">Secure</span> • Innovative • Reliable
             </h1>

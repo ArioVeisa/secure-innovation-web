@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+
+import React, { useEffect, useState, useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
+
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mousePosition, setMousePosition] = useState({
@@ -7,11 +9,13 @@ const HeroSection = () => {
     y: 0,
   });
   const heroRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Set isLoaded to true after initial render
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
       const rect = heroRef.current.getBoundingClientRect();
@@ -22,7 +26,8 @@ const HeroSection = () => {
         y,
       });
     };
-    window.addEventListener("mousemove", handleMouseMove);
+
+    window.addEventListener('mousemove', handleMouseMove);
     return () => {
       clearTimeout(timer);
       window.removeEventListener("mousemove", handleMouseMove);
@@ -49,82 +54,56 @@ const HeroSection = () => {
       ></div>
     );
   }
+
   return (
-    <section
-      ref={heroRef}
-      id="home"
-      className="relative pt-28 lg:pt-32 min-h-screen flex items-center overflow-hidden"
+    <section 
+      ref={heroRef} 
+      id="home" 
+      className="relative pt-24 min-h-screen flex items-center overflow-hidden"
     >
       {/* Background Elements - More advanced with animation */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        
         <div className="absolute top-[20%] left-[10%] w-60 h-60 bg-minetech-cyan/5 rounded-full blur-[80px] animate-float-slow"></div>
-        <div
-          className="absolute bottom-[30%] right-[15%] w-80 h-80 bg-minetech-cyan/5 rounded-full blur-[100px] animate-float"
-          style={{
-            animationDelay: "2s",
-          }}
-        ></div>
-        <div
-          className="absolute top-[60%] left-[30%] w-96 h-96 bg-minetech-navy/40 rounded-full blur-[120px] animate-float-slow"
-          style={{
-            animationDelay: "1s",
-          }}
-        ></div>
-
+        <div className="absolute bottom-[30%] right-[15%] w-80 h-80 bg-minetech-cyan/5 rounded-full blur-[100px] animate-float" style={{
+          animationDelay: "2s"
+        }}></div>
+        <div className="absolute top-[60%] left-[30%] w-96 h-96 bg-minetech-navy/40 rounded-full blur-[120px] animate-float-slow" style={{
+          animationDelay: "1s"
+        }}></div>
+        
         {/* Animated particles */}
         <div className="absolute inset-0 z-0">{particles}</div>
 
         {/* Mouse-following glow effect */}
-        <div
-          className="absolute w-96 h-96 rounded-full blur-[150px] bg-minetech-cyan/5 pointer-events-none transition-all duration-1000 ease-out"
-          style={{
-            left: `${mousePosition.x - 200}px`,
-            top: `${mousePosition.y - 200}px`,
-            opacity: isLoaded ? 0.6 : 0,
-          }}
-        ></div>
+        <div className="absolute w-96 h-96 rounded-full blur-[150px] bg-minetech-cyan/5 pointer-events-none transition-all duration-1000 ease-out" style={{
+          left: `${mousePosition.x - 200}px`,
+          top: `${mousePosition.y - 200}px`,
+          opacity: isLoaded ? 0.6 : 0
+        }}></div>
       </div>
 
       {/* Grid Lines - Enhanced subtle grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(100,255,218,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,255,218,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-7/12 lg:pr-12 space-y-8 reveal-stagger">
-            {/* Added main headline above the existing content */}
-            <div
-              className={`transition-all duration-700 ${
-                isLoaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-              style={{
-                transitionDelay: "0.1s",
-              }}
-            >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-12 text-white">
-                <span className="text-gradient">Transforming</span>
-                <br />
-                Ideas Into
-                <br />
-                <span className="text-minetech-cyan">Reality</span>
+          <div className="w-full lg:w-7/12 lg:pr-12 space-y-6 md:space-y-8">
+            {/* Main headline with improved mobile responsiveness */}
+            <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
+              transitionDelay: "0.1s"
+            }}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 text-white leading-[1.1]">
+                <span className="text-gradient">Transforming</span> 
+                <br />Ideas Into 
+                <br /><span className="text-minetech-cyan">Reality</span>
               </h1>
             </div>
-
-            <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${
-                isLoaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-              style={{
-                transitionDelay: "0.8s",
-              }}
-            >
-              <a
-                href="#services"
-                className="btn-outline-cyan px-8 py-3 rounded-md text-center flex items-center justify-center gap-2 group relative"
-              >
+            
+            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
+              transitionDelay: "0.8s"
+            }}>
+              <a href="#services" className="btn-outline-cyan px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-center flex items-center justify-center gap-2 group relative">
                 <span className="relative z-10">Get Started</span>
                 <ArrowRight
                   size={18}
@@ -132,48 +111,26 @@ const HeroSection = () => {
                 />
                 <div className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 bg-gradient-to-r from-minetech-cyan/10 via-minetech-cyan/20 to-transparent rounded-md"></div>
               </a>
-              <a
-                href="#about"
-                className="px-8 py-3 rounded-md bg-minetech-navy/80 text-white hover:bg-minetech-navy transition-all duration-300 text-center relative overflow-hidden group"
-              >
+              <a href="#about" className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-md bg-minetech-navy/80 text-white hover:bg-minetech-navy transition-all duration-300 text-center relative overflow-hidden group">
                 <span className="relative z-10">Learn More</span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white/5 to-transparent bg-[length:50%_100%] bg-no-repeat bg-[position:100%_0] group-hover:bg-[position:-50%_0]"></div>
               </a>
             </div>
           </div>
-
-          <div
-            className={`lg:w-5/12 mt-12 lg:mt-0 relative transition-all duration-1000 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{
-              transitionDelay: "1s",
-            }}
-          >
-            <div className="relative">
-              <div className="w-72 h-72 md:w-96 md:h-96 bg-minetech-navy border border-minetech-cyan/20 rounded-full flex items-center justify-center animate-float">
-                <div className="w-60 h-60 md:w-80 md:h-80 bg-gradient-to-br from-minetech-navy to-minetech-dark border border-minetech-cyan/30 rounded-full flex items-center justify-center">
-                  <div className="w-48 h-48 md:w-64 md:h-64 bg-minetech-dark/80 border border-minetech-cyan/40 rounded-full flex items-center justify-center animate-glow relative overflow-hidden group">
+          
+          <div className={`w-full lg:w-5/12 mt-12 lg:mt-0 relative transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
+            transitionDelay: "1s"
+          }}>
+            <div className="relative flex justify-center lg:justify-start">
+              {/* Reducing sizes for better proportion on desktop */}
+              <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-minetech-navy border border-minetech-cyan/20 rounded-full flex items-center justify-center animate-float">
+                <div className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 lg:w-64 lg:h-64 bg-gradient-to-br from-minetech-navy to-minetech-dark border border-minetech-cyan/30 rounded-full flex items-center justify-center">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 bg-minetech-dark/80 border border-minetech-cyan/40 rounded-full flex items-center justify-center animate-glow relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(100,255,218,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="flex flex-col items-center">
-                      <svg
-                        width="80"
-                        height="80"
-                        viewBox="0 0 80 80"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-minetech-cyan relative z-10"
-                      >
-                        <path
-                          d="M40 10L15 25V55L40 70L65 55V25L40 10Z"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
-                        <path
-                          d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
+                      <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-minetech-cyan relative z-10 sm:w-60 sm:h-60 md:w-70 md:h-70">
+                        <path d="M40 10L15 25V55L40 70L65 55V25L40 10Z" stroke="currentColor" strokeWidth="2" />
+                        <path d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25" stroke="currentColor" strokeWidth="2" />
                         <circle cx="40" cy="40" r="5" fill="currentColor" />
                         <circle cx="15" cy="25" r="3" fill="currentColor" />
                         <circle cx="65" cy="25" r="3" fill="currentColor" />
@@ -182,52 +139,35 @@ const HeroSection = () => {
                         <circle cx="40" cy="10" r="3" fill="currentColor" />
                         <circle cx="40" cy="70" r="3" fill="currentColor" />
                       </svg>
-                      <div className="text-center mt-4 space-y-1">
-                        <h3 className="text-minetech-cyan font-medium text-lg">
-                          Future of Tech
-                        </h3>
-                        <p className="text-minetech-light text-sm">
-                          Innovative Solutions
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* Floating decorative elements */}
-              <div
-                className="absolute -bottom-2 -right-2 sm:bottom-0 sm:-right-8 w-20 h-20 border border-minetech-cyan/30 rounded-lg animate-float"
-                style={{
-                  animationDelay: "1s",
-                }}
-              ></div>
-              <div
-                className="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 w-16 h-16 border border-minetech-cyan/20 rounded-full animate-float"
-                style={{
-                  animationDelay: "1.5s",
-                }}
-              ></div>
-
-              {/* Added light trails effect */}
+              
+              {/* Floating decorative elements - scaled for mobile */}
+              <div className="absolute -bottom-2 -right-2 sm:bottom-0 sm:-right-8 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 border border-minetech-cyan/30 rounded-lg animate-float" style={{
+                animationDelay: '1s'
+              }}></div>
+              <div className="absolute -top-4 -left-4 sm:-top-8 sm:-left-8 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border border-minetech-cyan/20 rounded-full animate-float" style={{
+                animationDelay: '1.5s'
+              }}></div>
+              
+              {/* Light trails effect - simplified for mobile */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
                 <div className="absolute top-0 left-1/2 h-full w-[1px] bg-gradient-to-b from-transparent via-minetech-cyan/20 to-transparent"></div>
                 <div className="absolute top-1/2 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-minetech-cyan/20 to-transparent"></div>
-
-                {/* Added circular light trail */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-minetech-cyan/10 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] border border-minetech-cyan/5 rounded-full"></div>
+                
+                {/* Circular light trail - scaled for mobile */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] sm:w-[200px] md:w-[220px] h-[180px] sm:h-[200px] md:h-[220px] border border-minetech-cyan/10 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] sm:w-[160px] md:w-[180px] h-[140px] sm:h-[160px] md:h-[180px] border border-minetech-cyan/5 rounded-full"></div>
               </div>
 
-              {/* Moving light dot */}
+              {/* Moving light dot - adapted for mobile */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative w-[300px] h-[300px]">
-                  <div
-                    className="absolute w-2 h-2 bg-minetech-cyan rounded-full"
-                    style={{
-                      animation: "orbit 10s linear infinite",
-                    }}
-                  ></div>
+                <div className="relative w-[180px] sm:w-[200px] md:w-[220px] h-[180px] sm:h-[200px] md:h-[220px]">
+                  <div className="absolute w-2 h-2 bg-minetech-cyan rounded-full" style={{
+                    animation: "orbit 10s linear infinite"
+                  }}></div>
                 </div>
               </div>
             </div>
@@ -238,12 +178,25 @@ const HeroSection = () => {
       <style>
         {`
         @keyframes orbit {
-          from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-          to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+          from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+          to { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+        }
+        @media (min-width: 640px) {
+          @keyframes orbit {
+            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+          }
+        }
+        @media (min-width: 768px) {
+          @keyframes orbit {
+            from { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+          }
         }
         `}
       </style>
     </section>
   );
 };
+
 export default HeroSection;

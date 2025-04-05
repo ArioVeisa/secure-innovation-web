@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface NavbarProps {
   activeSection?: string;
@@ -10,6 +11,7 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(propActiveSection || 'home');
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (propActiveSection) {
@@ -72,7 +74,7 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
             </span>
           </a>
           
-          <div className="hidden md:block ml-8">
+          <div className="hidden xl:block ml-8">
             <h1 className="text-minetech-light text-sm font-medium">
               <span className="text-minetech-cyan">Secure</span> • Innovative • Reliable
             </h1>
@@ -82,14 +84,15 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
           </div>
         </div>
 
-        <nav className="hidden md:flex space-x-8">
+        {/* Navigation for medium and large screens */}
+        <nav className="hidden md:flex space-x-4 lg:space-x-8">
           {navLinks.map((link, index) => (
             <a
               key={index}
               href={link.href}
               className={`text-minetech-light hover:text-minetech-cyan transition-colors link-underline relative ${
                 activeSection === link.href.substring(1) ? 'text-minetech-cyan' : ''
-              }`}
+              } text-sm lg:text-base`}
             >
               {link.name}
               {activeSection === link.href.substring(1) && (
@@ -99,7 +102,7 @@ const Navbar = ({ activeSection: propActiveSection }: NavbarProps) => {
           ))}
         </nav>
 
-        <button className="hidden md:block btn-outline-cyan px-6 py-2 rounded-md text-sm font-medium relative overflow-hidden group">
+        <button className="hidden md:block btn-outline-cyan px-4 lg:px-6 py-2 rounded-md text-xs lg:text-sm font-medium relative overflow-hidden group">
           <span className="relative z-10">Get In Touch</span>
           <span className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(100,255,218,0.2),transparent)] -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
         </button>

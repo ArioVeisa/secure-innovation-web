@@ -16,7 +16,7 @@ const AboutSection = () => {
             <p className="text-minetech-cyan font-medium mb-3 reveal">About Us</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">Who We Are & What We Do</h2>
             <p className="text-minetech-gray max-w-3xl mx-auto reveal">
-              Minetech.io is a forward-thinking digital solutions provider, focused on creating secure, innovative, and efficient digital experiences that solve complex business challenges.
+              Vint.io is a forward-thinking digital solutions provider, focused on creating secure, innovative, and efficient digital experiences that solve complex business challenges.
             </p>
           </div>
 

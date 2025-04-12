@@ -82,7 +82,7 @@ const HeroSection = () => {
             <div className={`transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{
               transitionDelay: "0.1s"
             }}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 text-white leading-[1.1]">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold mb-6 text-white leading-[1.1]">
                 <span className="text-gradient">Transforming</span> 
                 <br />Ideas Into 
                 <br /><span className="text-minetech-cyan">Reality</span>

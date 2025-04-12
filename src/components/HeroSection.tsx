@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -108,14 +109,14 @@ const HeroSection = () => {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(100,255,218,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="flex flex-col items-center">
                       <svg 
-                        width="50" 
-                        height="50" 
+                        width="80" 
+                        height="80" 
                         viewBox="0 0 80 80" 
                         fill="none" 
                         xmlns="http://www.w3.org/2000/svg" 
                         className="text-minetech-cyan relative z-10 
-                          w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]
-                          h-[40px] sm:h-[50px] md:h-[60px] lg:h-[70px]"
+                          w-[50px] sm:w-[60px] md:w-[70px] lg:w-[80px]
+                          h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px]"
                       >
                         <path d="M40 10L15 25V55L40 70L65 55V25L40 10Z" stroke="currentColor" strokeWidth="2" />
                         <path d="M40 10V40M40 40V70M40 40L15 25M40 40L65 25" stroke="currentColor" strokeWidth="2" />
